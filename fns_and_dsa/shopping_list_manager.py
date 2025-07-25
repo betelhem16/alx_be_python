@@ -1,5 +1,5 @@
 def display_menu():
-    print("\nShopping List Manager")
+    print("Shopping List Manager")
     print("1. Add Item")
     print("2. Remove Item")
     print("3. View List")
@@ -10,13 +10,9 @@ def main():
 
     while True:
         display_menu()
-        try:
-            choice = int(input("Enter your choice (number): "))
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-            continue
+        choice = input("Enter your choice: ")
 
-        if choice == 1:
+        if choice == '1':
             print("Enter items to add (type 'done' when finished):")
             while True:
                 item = input("Item: ").strip()
@@ -25,7 +21,7 @@ def main():
                 shopping_list.append(item)
                 print(f"'{item}' has been added to your shopping list.")
 
-        elif choice == 2:
+        elif choice == '2':
             item = input("Enter the item to remove: ").strip()
             if item in shopping_list:
                 shopping_list.remove(item)
@@ -33,7 +29,7 @@ def main():
             else:
                 print(f"'{item}' was not found in your shopping list.")
 
-        elif choice == 3:
+        elif choice == '3':
             if shopping_list:
                 print("Your shopping list:")
                 for i, item in enumerate(shopping_list, start=1):
@@ -41,13 +37,12 @@ def main():
             else:
                 print("Your shopping list is empty.")
 
-        elif choice == 4:
+        elif choice == '4':
             print("Goodbye!")
             break
 
         else:
-            print("Invalid choice. Please enter a number between 1 and 4.")
+            print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()
-
